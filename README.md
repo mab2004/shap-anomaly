@@ -1,6 +1,3 @@
-# shap-an
-Anomaly Detection in Network Traffic Using  Explainable AI 
-
 # CyberShield AI: Network Anomaly Detection System with Explainable AI
 
 ## Table of Contents
