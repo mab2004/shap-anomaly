@@ -4,7 +4,6 @@ Anomaly Detection in Network Traffic Using  Explainable AI
 # CyberShield AI: Network Anomaly Detection System with Explainable AI
 
 ![System Architecture Diagram](system_architecture.png)
-*(Ensure your `system_architecture.png` is updated and placed in the root directory)*
 
 ## Table of Contents
 - [About the Project](#about-the-project)
@@ -85,7 +84,6 @@ The project utilizes the **NSL-KDD Dataset**, a widely recognized benchmark for 
 The dataset comprises **41 features** describing network connection records (e.g., duration, protocol type, service, flag, byte counts, error rates) and a `label` indicating 'normal' or a specific type of 'attack' (e.g., DoS, Probe, R2L, U2R). For this project, all attack labels are consolidated into a single **'attack'** class for binary classification.
 
 **Source:** [NSL-KDD Dataset on Kaggle](https://www.kaggle.com/datasets/hassan06/nslkdd)
-*(Note: The raw `.TXT` files are included in the `dataset/` folder within this repository for convenience, as processed during the project.)*
 
 ## Methodology Highlights
 
@@ -119,7 +117,7 @@ SHAP is instrumental in providing transparency:
 * **Global Feature Importance:** Identifies the most influential features overall.
     **[Insert `shap_feature_importance.png` here]**
 * **Detailed Feature Impact:** Shows how each feature's value affects predictions for specific instances (e.g., high `src_bytes` pushing towards 'attack').
-    **[Insert `shap_detailed_impact.jpg` here]**
+    **[Insert `shap_detailed_impact.png` here]**
 * **Individual Prediction Breakdown:** Explains exactly why a single network connection was classified as an anomaly.
     **[Insert `shap_waterfall_example.png` here]**
 
@@ -131,6 +129,56 @@ The Streamlit dashboard (`main_dashboard.py`) offers an intuitive way to interac
 * **Dynamic Visualizations:** Presents model performance, SHAP explanations, and threat summaries.
 * **Interactive Simulation:** Upload new data (`.csv` files) or run on pre-sampled test data for immediate predictions and detailed explanations.
 
-**[Insert a screenshot of your main dashboard interface here, e.g., the "Real-time Anomaly Detection" tab showing input options and initial results.]**
+## Getting Started
 
-**[Insert a screenshot of your SHAP Explanation section here, specifically showing an interactive individual SHAP waterfall plot for a selected instance.]**
+Follow these steps to set up the project and run the Streamlit dashboard on your local machine.
+
+### Prerequisites
+
+* **Python 3.8 or higher** is recommended.
+* `pip` (Python package installer)
+
+### Installation
+
+1.  **Clone the repository:**
+    ```bash
+    git clone [https://github.com/mab2004/shap-anomaly.git](https://github.com/mab2004/shap-anomaly.git)
+    cd shap-anomaly
+    ```
+
+2.  **Install required Python libraries:**
+    The project relies on several key libraries. 
+    ```bash
+    pip install numpy pandas scikit-learn seaborn shap streamlit imblearn tqdm
+    ```
+
+### Running the Project
+
+#### 1. Generate Model Artifacts & Plots (Optional but Recommended)
+
+The repository includes pre-generated `.pkl` model artifacts and plots. However, if you wish to retrain the model or regenerate the visuals, run the training script first.
+
+* Ensure the NSL-KDD dataset files (`KDDTrain+.TXT` and `KDDTest+.TXT`) are placed in the directory.
+* Execute the training script:
+    ```bash
+    python project.py
+    ```
+
+    This will generate:
+    * `anomaly_detector.pkl`
+    * `scaler.pkl`
+    * `label_encoder.pkl`
+    * `features.pkl`
+    * `shap_explainer.pkl`
+    * `model_metrics.pkl`
+    * `performance_curves.png`
+    * `shap_feature_importance.png`
+    * `shap_detailed_impact.jpg`
+    * `shap_waterfall_example.png`
+      
+#### 2. Run the Streamlit Dashboard
+
+Once dependencies are installed and artifacts are available, you can launch the interactive dashboard:
+
+```bash
+streamlit run main_dashboard.py
