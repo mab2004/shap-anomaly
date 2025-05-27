@@ -3,8 +3,6 @@ Anomaly Detection in Network Traffic Using  Explainable AI
 
 # CyberShield AI: Network Anomaly Detection System with Explainable AI
 
-![System Architecture Diagram](system_architecture.png)
-
 ## Table of Contents
 - [About the Project](#about-the-project)
 - [Problem Statement](#problem-statement)
@@ -23,11 +21,7 @@ Anomaly Detection in Network Traffic Using  Explainable AI
   - [Running the Project](#running-the-project)
     - [1. Generate Model Artifacts & Plots (Optional but Recommended)](#1-generate-model-artifacts--plots-optional-but-recommended)
     - [2. Run the Streamlit Dashboard](#2-run-the-streamlit-dashboard)
-- [Project Structure](#project-structure)
-- [Future Enhancements](#future-enhancements)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
+
 
 ## About the Project
 
@@ -107,19 +101,14 @@ The model demonstrates strong performance in detecting network anomalies:
 * **Average Precision (PR-AUC):** ~96.83%
 * **False Alarm Rate (FPR):** ~17.67%
 
-**[Insert `performance_curves.png` here]**
-*(The `performance_curves.png` provides a visual representation of ROC and Precision-Recall curves.)*
 
 ## Explainability (SHAP) Highlights
 
 SHAP is instrumental in providing transparency:
 
 * **Global Feature Importance:** Identifies the most influential features overall.
-    **[Insert `shap_feature_importance.png` here]**
 * **Detailed Feature Impact:** Shows how each feature's value affects predictions for specific instances (e.g., high `src_bytes` pushing towards 'attack').
-    **[Insert `shap_detailed_impact.png` here]**
 * **Individual Prediction Breakdown:** Explains exactly why a single network connection was classified as an anomaly.
-    **[Insert `shap_waterfall_example.png` here]**
 
 ## Dashboard (Streamlit) Highlights
 
